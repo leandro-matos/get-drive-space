@@ -1,9 +1,14 @@
+##################################################
+## Author: Leandro Matos
+## Copyright: Copyright 2020.
+##################################################
 
+#Machine hostname
 $strComputer = hostname
 
 $LogDate = ((get-date).ToLocalTime()).ToString("yyyy-MM-ddTHH:mm:ss.fff")
 
-# Does the server responds to a ping (otherwise the WMI queries will fail)
+#Does the server responds to a ping (otherwise the WMI queries will fail)
 $query = "select * from win32_pingstatus where address = '$strComputer'"
 $result = Get-WmiObject -query $query
 
